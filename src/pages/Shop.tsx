@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
-import { SEO } from "@/components/SEO";
 import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -36,25 +35,9 @@ const Shop = () => {
       return 0;
     });
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Shop All Products",
-    description: "Browse our complete collection of premium electronics and luxury accessories",
-    url: "https://yourdomain.com/shop",
-  };
-
   return (
-    <>
-      <SEO
-        title="Shop Premium Products"
-        description="Browse our complete collection of premium electronics, luxury accessories, and high-end gadgets. Filter by category and price to find your perfect match."
-        keywords="shop electronics, buy luxury accessories, premium gadgets, online shopping"
-        structuredData={structuredData}
-        canonicalUrl="https://yourdomain.com/shop"
-      />
-      <div className="min-h-screen">
-        <Navbar />
+    <div className="min-h-screen">
+      <Navbar />
 
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
@@ -165,8 +148,7 @@ const Shop = () => {
       </div>
 
       <Footer />
-      </div>
-    </>
+    </div>
   );
 };
 
