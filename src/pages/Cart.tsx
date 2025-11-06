@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { SEO } from "@/components/SEO";
 import { products } from "@/data/products";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -46,28 +47,40 @@ const Cart = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen">
-        <Navbar />
-        <div className="container mx-auto px-4 py-20 text-center">
-          <ShoppingBag className="h-24 w-24 mx-auto mb-6 text-muted-foreground" />
-          <h1 className="text-4xl font-bold mb-4">Your Cart is Empty</h1>
-          <p className="text-xl text-muted-foreground mb-8">
-            Start shopping to add items to your cart
-          </p>
-          <Link to="/shop">
-            <Button size="lg" variant="hero">
-              Continue Shopping
-            </Button>
-          </Link>
+      <>
+        <SEO
+          title="Shopping Cart"
+          description="View your shopping cart and proceed to checkout"
+        />
+        <div className="min-h-screen">
+          <Navbar />
+          <div className="container mx-auto px-4 py-20 text-center">
+            <ShoppingBag className="h-24 w-24 mx-auto mb-6 text-muted-foreground" />
+            <h1 className="text-4xl font-bold mb-4">Your Cart is Empty</h1>
+            <p className="text-xl text-muted-foreground mb-8">
+              Start shopping to add items to your cart
+            </p>
+            <Link to="/shop">
+              <Button size="lg" variant="hero">
+                Continue Shopping
+              </Button>
+            </Link>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <>
+      <SEO
+        title="Shopping Cart"
+        description="Review your cart items and proceed to secure checkout. Free shipping on orders over $500."
+        canonicalUrl="https://yourdomain.com/cart"
+      />
+      <div className="min-h-screen">
+        <Navbar />
 
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 animate-fade-in">
@@ -194,7 +207,8 @@ const Cart = () => {
       </div>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

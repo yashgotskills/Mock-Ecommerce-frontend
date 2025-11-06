@@ -114,10 +114,18 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
     scroll-behavior: smooth;
   }
 }
@@ -139,11 +147,11 @@ All colors MUST be HSL.
   }
 
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-2;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .hover-lift:hover {
+    transform: translateY(-8px);
     box-shadow: var(--shadow-elevated);
   }
 
@@ -157,5 +165,10 @@ All colors MUST be HSL.
 
   .animation-delay-600 {
     animation-delay: 600ms;
+  }
+  
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
 }

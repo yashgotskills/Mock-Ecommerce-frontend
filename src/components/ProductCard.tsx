@@ -1,6 +1,7 @@
 import { ShoppingCart, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { LazyImage } from "@/components/LazyImage";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -31,9 +32,9 @@ export const ProductCard = ({ id, name, price, image, category }: ProductCardPro
     <Link to={`/product/${id}`}>
       <Card className="group overflow-hidden hover-lift border-border bg-card animate-fade-in">
         <div className="relative aspect-square overflow-hidden bg-secondary/20">
-          <img
+          <LazyImage
             src={image}
-            alt={name}
+            alt={`${name} - ${category} - Premium quality product available at LUXE`}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

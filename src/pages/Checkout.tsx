@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
+import { SEO } from "@/components/SEO";
 import { products } from "@/data/products";
 import { CreditCard, Truck, Lock } from "lucide-react";
 import { toast } from "sonner";
@@ -39,8 +40,14 @@ const Checkout = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <>
+      <SEO
+        title="Secure Checkout"
+        description="Complete your purchase securely with SSL encryption. Multiple payment options available including credit card and PayPal."
+        canonicalUrl="https://yourdomain.com/checkout"
+      />
+      <div className="min-h-screen">
+        <Navbar />
 
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 animate-fade-in">
@@ -227,7 +234,8 @@ const Checkout = () => {
       </div>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

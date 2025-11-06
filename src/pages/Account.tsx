@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { SEO } from "@/components/SEO";
 import { User, Package, Heart, Settings } from "lucide-react";
 import { products } from "@/data/products";
 import { Link } from "react-router-dom";
@@ -30,8 +31,14 @@ const Account = () => {
   const wishlist = [products[3], products[4], products[5]];
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <>
+      <SEO
+        title="My Account"
+        description="Manage your account, view order history, track shipments, and update your profile settings."
+        canonicalUrl="https://yourdomain.com/account"
+      />
+      <div className="min-h-screen">
+        <Navbar />
 
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 animate-fade-in">
@@ -236,7 +243,8 @@ const Account = () => {
       </div>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

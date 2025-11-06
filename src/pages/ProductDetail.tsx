@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Product3DViewer } from "@/components/Product3DViewer";
+import { SEO } from "@/components/SEO";
 import { products } from "@/data/products";
 import { Star, ShoppingCart, Heart, Minus, Plus, ArrowLeft, Rotate3D } from "lucide-react";
 import { toast } from "sonner";
@@ -17,21 +18,27 @@ const ProductDetail = () => {
   const [view3D, setView3D] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id]);
 
   if (!product) {
     return (
-      <div className="min-h-screen">
-        <Navbar />
-        <div className="container mx-auto px-4 py-20 text-center">
-          <h1 className="text-4xl font-bold mb-4">Product Not Found</h1>
-          <Link to="/shop">
-            <Button variant="hero">Back to Shop</Button>
-          </Link>
+      <>
+        <SEO
+          title="Product Not Found"
+          description="The product you're looking for could not be found"
+        />
+        <div className="min-h-screen">
+          <Navbar />
+          <div className="container mx-auto px-4 py-20 text-center">
+            <h1 className="text-4xl font-bold mb-4">Product Not Found</h1>
+            <Link to="/shop">
+              <Button variant="hero">Back to Shop</Button>
+            </Link>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </>
     );
   }
 
@@ -47,9 +54,45 @@ const ProductDetail = () => {
   // For demo, we'll use the same image multiple times
   const productImages = [product.image, product.image, product.image];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    image: product.image,
+    description: product.description,
+    sku: product.id,
+    brand: {
+      "@type": "Brand",
+      name: "LUXE",
+    },
+    offers: {
+      "@type": "Offer",
+      url: `https://yourdomain.com/product/${product.id}`,
+      priceCurrency: "USD",
+      price: product.price,
+      availability: product.inStock
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: product.rating,
+      reviewCount: product.reviews,
+    },
+  };
+
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <>
+      <SEO
+        title={product.name}
+        description={product.description}
+        keywords={`${product.name}, ${product.category}, luxury ${product.category.toLowerCase()}, premium products`}
+        ogType="product"
+        structuredData={structuredData}
+        canonicalUrl={`https://yourdomain.com/product/${product.id}`}
+      />
+      <div className="min-h-screen">
+        <Navbar />
 
       <div className="container mx-auto px-4 py-8">
         {/* Breadcrumb */}
@@ -256,7 +299,8 @@ const ProductDetail = () => {
       </div>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

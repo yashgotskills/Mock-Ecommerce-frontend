@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
+import { SEO } from "@/components/SEO";
 import { products } from "@/data/products";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -13,15 +14,36 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const featuredProducts = products.slice(0, 3);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "LUXE",
+    description: "Premium e-commerce store offering luxury electronics and accessories",
+    url: "https://yourdomain.com",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://yourdomain.com/shop?search={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <>
+      <SEO
+        title="Premium Luxury Shopping Experience"
+        description="Discover premium products that blend innovation with elegance. Shop luxury electronics, designer accessories, and high-end products with free shipping, 24/7 support, and 30-day returns."
+        keywords="luxury shopping, premium electronics, designer accessories, high-end products, online luxury store, premium gadgets"
+        structuredData={structuredData}
+        canonicalUrl="https://yourdomain.com/"
+      />
+      <div className="min-h-screen">
+        <Navbar />
 
       {/* Hero Section with Parallax */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
@@ -169,7 +191,8 @@ const Index = () => {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 
