@@ -1,3 +1,10 @@
+import productHeadphones from "@/assets/product-headphones.png";
+import productWatch from "@/assets/product-watch.png";
+import productLaptop from "@/assets/product-laptop.png";
+import productPhone from "@/assets/product-phone.png";
+import productSunglasses from "@/assets/product-sunglasses.png";
+import productCamera from "@/assets/product-camera.png";
+
 export interface Product {
   id: string;
   name: string;
@@ -17,7 +24,7 @@ export const products: Product[] = [
     name: "Premium Wireless Headphones",
     price: 299.99,
     description: "Experience crystal-clear sound with our premium wireless headphones. Advanced noise cancellation and 30-hour battery life.",
-    image: "/src/assets/product-headphones.png",
+    image: productHeadphones,
     category: "Electronics",
     rating: 4.8,
     reviews: 245,
@@ -34,7 +41,7 @@ export const products: Product[] = [
     name: "Luxury Smart Watch",
     price: 449.99,
     description: "Stay connected in style with our luxury smart watch. Track your fitness, receive notifications, and more.",
-    image: "/src/assets/product-watch.png",
+    image: productWatch,
     category: "Electronics",
     rating: 4.7,
     reviews: 189,
@@ -51,7 +58,7 @@ export const products: Product[] = [
     name: "Ultra Portable Laptop",
     price: 1299.99,
     description: "Power meets portability. Our ultra-thin laptop delivers exceptional performance wherever you go.",
-    image: "/src/assets/product-laptop.png",
+    image: productLaptop,
     category: "Electronics",
     rating: 4.9,
     reviews: 412,
@@ -68,7 +75,7 @@ export const products: Product[] = [
     name: "Modern Smartphone",
     price: 899.99,
     description: "Capture life's moments with our flagship smartphone. Advanced camera system and all-day battery.",
-    image: "/src/assets/product-phone.png",
+    image: productPhone,
     category: "Electronics",
     rating: 4.6,
     reviews: 567,
@@ -85,7 +92,7 @@ export const products: Product[] = [
     name: "Designer Sunglasses",
     price: 199.99,
     description: "Make a statement with our designer sunglasses. UV protection meets timeless style.",
-    image: "/src/assets/product-sunglasses.png",
+    image: productSunglasses,
     category: "Accessories",
     rating: 4.5,
     reviews: 123,
@@ -102,7 +109,7 @@ export const products: Product[] = [
     name: "Professional Camera",
     price: 1899.99,
     description: "Capture stunning photos and videos with our professional-grade camera. Perfect for content creators.",
-    image: "/src/assets/product-camera.png",
+    image: productCamera,
     category: "Electronics",
     rating: 4.9,
     reviews: 298,

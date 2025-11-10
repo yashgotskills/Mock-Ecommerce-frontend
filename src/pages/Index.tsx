@@ -76,34 +76,34 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-secondary/20">
+      <section className="py-24 bg-secondary/20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center animate-fade-in p-6 rounded-2xl hover-lift bg-card">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                <TrendingUp className="h-8 w-8 text-primary" />
+            <div className="text-center animate-fade-in p-8 rounded-2xl hover-professional professional-shadow bg-card">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <TrendingUp className="h-10 w-10 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Premium Quality</h3>
-              <p className="text-muted-foreground">
-                Handpicked products that meet the highest standards
+              <h3 className="text-xl font-semibold mb-3 tracking-tight">Premium Quality</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Handpicked products that meet the highest standards of excellence and craftsmanship
               </p>
             </div>
-            <div className="text-center animate-fade-in animation-delay-200 p-6 rounded-2xl hover-lift bg-card">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                <Shield className="h-8 w-8 text-primary" />
+            <div className="text-center animate-fade-in animation-delay-200 p-8 rounded-2xl hover-professional professional-shadow bg-card">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Shield className="h-10 w-10 text-accent" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Secure Shopping</h3>
-              <p className="text-muted-foreground">
-                Your data is protected with industry-leading security
+              <h3 className="text-xl font-semibold mb-3 tracking-tight">Secure Shopping</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Your data is protected with industry-leading security and encryption
               </p>
             </div>
-            <div className="text-center animate-fade-in animation-delay-400 p-6 rounded-2xl hover-lift bg-card">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                <Sparkles className="h-8 w-8 text-primary" />
+            <div className="text-center animate-fade-in animation-delay-400 p-8 rounded-2xl hover-professional professional-shadow bg-card">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Sparkles className="h-10 w-10 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Exceptional Service</h3>
-              <p className="text-muted-foreground">
-                24/7 customer support for your peace of mind
+              <h3 className="text-xl font-semibold mb-3 tracking-tight">Exceptional Service</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                24/7 customer support for your peace of mind and satisfaction
               </p>
             </div>
           </div>
@@ -111,26 +111,28 @@ const Index = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
               Featured <span className="text-gradient">Products</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Handpicked favorites from our premium collection
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} {...product} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            {featuredProducts.map((product, index) => (
+              <div key={product.id} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
+                <ProductCard {...product} />
+              </div>
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link to="/shop">
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="group hover-professional professional-shadow">
                 View All Products
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>
